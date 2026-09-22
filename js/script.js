@@ -488,6 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closeModal() {
     if (!siteModal) return;
+    if (modalContent) modalContent.querySelectorAll('video').forEach(video => video.pause());
     siteModal.classList.remove('active');
     siteModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
@@ -527,22 +528,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Watch Trailer Button
+  // My Profile video
   if (watchTrailerBtn) {
     watchTrailerBtn.addEventListener('click', () => {
       openModal(`
-        <div style="position:relative; width:100%; height:320px; background:#0c0a12; border-radius:6px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:1.5rem; border:1px solid var(--accent-gold);">
-          <div style="width:70px; height:70px; border-radius:50%; background:var(--accent-gold); display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; box-shadow:0 0 25px rgba(212,175,55,0.6);">
-            <svg viewBox="0 0 24 24" fill="#09090c" style="width:28px; height:28px; margin-left:3px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </div>
-          <h3 style="font-family:var(--font-heading); font-size:1.4rem; letter-spacing:0.1em; color:#fff; margin-bottom:0.5rem;">OFFICIAL CINEMATIC TRAILER</h3>
-          <p style="font-size:0.85rem; color:#8e909e; max-width:440px; margin-bottom:1.5rem;">Experience high fidelity graphics, dynamic particle spell effects, and 120 FPS high-refresh MOBA competition.</p>
-          <a href="#download" class="btn btn-primary-gold" onclick="document.getElementById('siteModal').classList.remove('active'); document.body.style.overflow='';">DOWNLOAD & PLAY TODAY</a>
-        </div>
+        <video class="profile-video" controls autoplay playsinline preload="metadata" aria-label="My Profile video" style="display:block; width:100%; max-height:70dvh; object-fit:contain; background:#000; border-radius:6px;">
+          <source src="assets/videos/my-profile.mp4" type="video/mp4">
+          Your browser does not support video playback.
+        </video>
       `);
     });
   }
-
   // View All News button
   if (viewAllNewsBtn) {
     viewAllNewsBtn.addEventListener('click', () => {
