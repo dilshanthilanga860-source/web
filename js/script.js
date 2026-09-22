@@ -528,14 +528,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // My Profile video
+  // My Profile photo
   if (watchTrailerBtn) {
     watchTrailerBtn.addEventListener('click', () => {
       openModal(`
-        <video class="profile-video" controls autoplay playsinline preload="metadata" aria-label="My Profile video" style="display:block; width:100%; max-height:70dvh; object-fit:contain; background:#000; border-radius:6px;">
-          <source src="assets/videos/my-profile.mp4" type="video/mp4">
-          Your browser does not support video playback.
-        </video>
+        <img class="profile-photo" src="assets/images/my-profile.png" alt="Rushan Mobile Legends player profile" width="1145" height="1374" style="display:block; width:100%; height:auto; max-height:75dvh; object-fit:contain; border-radius:6px;">
       `);
     });
   }
