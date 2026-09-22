@@ -12,8 +12,8 @@
 .hero-profile-card:hover { border-color: var(--hero-accent); box-shadow: 0 6px 20px #0003; }
 .hero-profile-card:focus-visible, .hero-gallery-controls button:focus-visible { outline: 3px solid #b48a4a; outline-offset: 2px; }
 .hero-profile-art { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #ebe8e2; }
-.hero-profile-art img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; transition: transform .4s; }
-.hero-profile-card:hover .hero-profile-art img { transform: scale(1.025); }
+.hero-profile-art :is(img, video) { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; transition: transform .4s; }
+.hero-profile-card:hover .hero-profile-art :is(img, video) { transform: scale(1.025); }
 .hero-profile-number { position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; display: grid; place-items: center; background: #090b10cc; border: 1px solid #ffffff40; border-radius: 50%; color: white; font-size: 10px; letter-spacing: .05em; }
 .hero-profile-body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
 .hero-profile-role { font-size: 9px; color: var(--hero-accent); letter-spacing: .22em; font-weight: 700; }
@@ -41,7 +41,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-card-track { scroll-behavior: auto; }
-  .hero-profile-art img, .hero-profile-card { transition: none; }
+  .hero-profile-art :is(img, video), .hero-profile-card { transition: none; }
 }
 
 /* Compact landscape carousel with the image and caption sharing one card. */
@@ -58,8 +58,8 @@
 .hero-card-track::-webkit-scrollbar { display: none; }
 .hero-profile-card { position: relative; aspect-ratio: 1.55; flex-basis: calc((100% - 36px) / 3); border-radius: 0; border-color: #a3c4d36b; background: #082435; }
 .hero-profile-art { position: absolute; inset: 0; aspect-ratio: auto; }
-.hero-profile-art img { object-position: center 34%; }
-.hero-profile-card.johnson img { object-position: center 53%; }
+.hero-profile-art :is(img, video) { object-position: center 34%; }
+.hero-profile-card.johnson :is(img, video) { object-position: center 53%; }
 .hero-profile-card.lesley img { object-position: center 58%; }
 .hero-profile-card.alice img { object-position: center 55%; }
 .hero-profile-number { left: 11px; right: auto; top: 11px; width: auto; height: auto; padding: 5px 9px; border: 0; border-radius: 0; background: #d6bd70; color: #102a36; font-weight: 700; }
