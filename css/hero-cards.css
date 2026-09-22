@@ -1,0 +1,87 @@
+.hero-gallery-section { padding-bottom: 48px; }
+.hero-gallery-heading { margin-bottom: 24px; }
+.hero-gallery-subtitle { margin-top: 8px; color: #55515a; font-size: 10px; font-weight: 700; letter-spacing: .16em; }
+.hero-gallery-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.hero-gallery-hint { color: #77717b; font-size: 11px; letter-spacing: .06em; }
+.hero-gallery-controls { display: flex; gap: 8px; }
+.hero-gallery-controls button { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #d6c59d; border-radius: 50%; color: #806022; font: 24px Georgia, serif; }
+.hero-gallery-controls button:disabled { opacity: .3; cursor: default; }
+.hero-gallery-controls button:not(:disabled):hover { background: #f4eedf; }
+.hero-card-track { display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 2px; overscroll-behavior-x: contain; padding: 4px 2px 20px; scrollbar-width: thin; scrollbar-color: #b48a4a #eee9df; }
+.hero-profile-card { --hero-accent: #d2ad62; flex: 0 0 calc((100% - 44px) / 3); min-width: 0; scroll-snap-align: start; display: flex; flex-direction: column; border-radius: 8px; overflow: hidden; background: #0b0c10; color: white; box-shadow: 0 5px 15px #0002; text-decoration: none; border: 1px solid #d9d5cf; transition: box-shadow .2s, border-color .2s; }
+.hero-profile-card:hover { border-color: var(--hero-accent); box-shadow: 0 6px 20px #0003; }
+.hero-profile-card:focus-visible, .hero-gallery-controls button:focus-visible { outline: 3px solid #b48a4a; outline-offset: 2px; }
+.hero-profile-art { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #ebe8e2; }
+.hero-profile-art img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; transition: transform .4s; }
+.hero-profile-card:hover .hero-profile-art img { transform: scale(1.025); }
+.hero-profile-number { position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; display: grid; place-items: center; background: #090b10cc; border: 1px solid #ffffff40; border-radius: 50%; color: white; font-size: 10px; letter-spacing: .05em; }
+.hero-profile-body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.hero-profile-role { font-size: 9px; color: var(--hero-accent); letter-spacing: .22em; font-weight: 700; }
+.hero-profile-name { font: 800 27px/1.2 var(--font-heading); letter-spacing: .08em; margin: 7px 0 10px; }
+.hero-profile-caption { font-size: 12px; line-height: 1.6; color: #bdbac4; margin-bottom: 20px; }
+.hero-profile-link { display: flex; justify-content: space-between; align-items: center; color: var(--hero-accent); margin-top: auto; padding-top: 12px; border-top: 1px solid #ffffff20; font-size: 10px; font-weight: 700; letter-spacing: .16em; }
+.hero-profile-link span { font-size: 20px; }
+.hero-profile-card.nobara { --hero-accent: #ee9b94; }
+.hero-profile-card.alice { --hero-accent: #c9a3ef; }
+.hero-gallery-position { text-align: center; color: #82734f; font-size: 10px; letter-spacing: .2em; margin-top: 12px; }
+@media (max-width: 860px) { .hero-profile-card { flex-basis: calc((100% - 22px) / 2); } }
+@media (max-width: 600px) {
+  .hero-gallery-section { padding-top: 16px; padding-bottom: 24px; }
+  .hero-gallery-heading { margin-bottom: 12px; }
+  .hero-gallery-subtitle { font-size: 7px; margin-top: 6px; }
+  .hero-gallery-toolbar { margin-bottom: 9px; }
+  .hero-gallery-hint { font-size: 9px; }
+  .hero-gallery-controls button { width: 34px; height: 34px; }
+  .hero-card-track { gap: 14px; padding-bottom: 14px; }
+  .hero-profile-card { flex-basis: 86%; }
+  .hero-profile-body { padding: 17px; }
+  .hero-profile-name { font-size: 25px; }
+  .hero-profile-caption { font-size: 11px; margin-bottom: 13px; }
+  .hero-gallery-position { margin-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-card-track { scroll-behavior: auto; }
+  .hero-profile-art img, .hero-profile-card { transition: none; }
+}
+
+/* Compact landscape carousel with the image and caption sharing one card. */
+.hero-gallery-section {
+  padding: 38px 0 30px;
+  background: linear-gradient(#063448dc, #082b40e8), url('../assets/backgrounds/mode-chaos.jpg') center / cover;
+  color: #fff;
+}
+.hero-gallery-section > .content-container { display: flex; flex-direction: column; }
+.hero-gallery-heading { order: 0; margin-bottom: 24px; }
+.hero-gallery-heading .section-heading-dark { color: #fff; }
+.hero-gallery-subtitle { color: #dfbd80; }
+.hero-card-track { order: 1; gap: 18px; padding: 3px 2px 10px; scrollbar-width: none; }
+.hero-card-track::-webkit-scrollbar { display: none; }
+.hero-profile-card { position: relative; aspect-ratio: 1.55; flex-basis: calc((100% - 36px) / 3); border-radius: 0; border-color: #a3c4d36b; background: #082435; }
+.hero-profile-art { position: absolute; inset: 0; aspect-ratio: auto; }
+.hero-profile-art img { object-position: center 34%; }
+.hero-profile-card.johnson img { object-position: center 53%; }
+.hero-profile-card.lesley img { object-position: center 58%; }
+.hero-profile-card.alice img { object-position: center 55%; }
+.hero-profile-number { left: 11px; right: auto; top: 11px; width: auto; height: auto; padding: 5px 9px; border: 0; border-radius: 0; background: #d6bd70; color: #102a36; font-weight: 700; }
+.hero-profile-body { position: relative; margin-top: auto; flex: 0 0 auto; padding: 16px 18px 14px; background: linear-gradient(transparent, #062030e8 22%, #062030fa); }
+.hero-profile-name { font-size: 22px; margin: 8px 0 5px; letter-spacing: .03em; }
+.hero-profile-caption { font-size: 11px; margin: 0; color: #d1e1e8; }
+.hero-profile-role, .hero-profile-link { display: none; }
+.hero-gallery-toolbar { order: 2; justify-content: center; margin: 14px 0 0; }
+.hero-gallery-hint { display: none; }
+.hero-gallery-controls { align-items: center; gap: 24px; }
+.hero-gallery-controls button { width: 44px; height: 40px; border-radius: 0; background: #103f52; border-color: #91b4c16b; color: #f3dba0; }
+.hero-gallery-controls button:not(:disabled):hover { background: #22576b; }
+.hero-gallery-position { margin: 0; min-width: 52px; color: #d4e1e7; font-size: 11px; }
+@media (max-width: 860px) { .hero-profile-card { flex-basis: calc((100% - 18px) / 2); } }
+@media (max-width: 600px) {
+  .hero-gallery-section { padding: 25px 0 22px; }
+  .hero-gallery-heading { margin-bottom: 18px; }
+  .hero-card-track { gap: 12px; }
+  .hero-profile-card { flex-basis: 86%; }
+  .hero-profile-body { padding: 12px 14px; }
+  .hero-profile-name { font-size: 20px; }
+  .hero-profile-caption { font-size: 10px; }
+  .hero-profile-number { font-size: 8px; }
+  .hero-gallery-toolbar { margin-top: 12px; }
+}
