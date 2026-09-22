@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AETHERIA: REALM OF VALOR | Official 5v5 Fantasy MOBA</title>
+  <meta name="description" content="Experience real-time 5v5 MOBA action on PC and mobile. Master legendary heroes, dominate the battle arena, and claim eternal glory in Aetheria: Realm of Valor.">
+  <meta name="theme-color" content="#09090c">
+
+  <!-- Favicon Crest -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+
+  <!-- Google Fonts: Cinzel & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/hero-cards.css">
+</head>
+<body>
+
+  <!-- ==================================================
+       1. NAVIGATION BAR
+       ================================================== -->
+  <header class="site-header" id="navbar">
+    <div class="nav-container">
+      <!-- Game Logo -->
+      <a href="#hero" class="nav-brand" aria-label="Aetheria Realm of Valor Home">
+        <img src="assets/images/logo.svg" alt="Aetheria Logo" class="brand-logo">
+      </a>
+
+      <!-- Center Desktop Navigation -->
+      <nav class="nav-links" id="primary-navigation" aria-label="Main Navigation">
+        <a href="#hero" class="nav-item active">GAME</a>
+        <a href="#heroes" class="nav-item">HEROES</a>
+        <a href="#modes" class="nav-item">MODES</a>
+      </nav>
+
+      <!-- Right Action Area -->
+      <div class="nav-actions">
+        <button class="sound-toggle" id="soundToggle" aria-label="Toggle Atmosphere Sound" title="Sound Ambience">
+          <svg class="sound-icon sound-icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+          <svg class="sound-icon sound-icon-on" style="display:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+        </button>
+
+        <a href="#download" class="btn btn-primary-gold nav-login-btn">
+          <span>PLAY FREE</span>
+        </a>
+
+        <!-- Hamburger Icon for Mobile -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <div class="drawer-header">
+        <img src="assets/images/logo.svg" alt="Aetheria" class="drawer-logo">
+        <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="#hero" class="drawer-link">GAME</a>
+        <a href="#heroes" class="drawer-link">HEROES</a>
+        <a href="#modes" class="drawer-link">GAME MODES</a>
+        <a href="#classes" class="drawer-link">HERO CLASSES</a>
+      </nav>
+      <div class="drawer-footer">
+        <a href="#download" class="btn btn-primary-gold btn-block">PLAY NOW</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main>
+
+    <!-- ==================================================
+         2. HERO SECTION
+         ================================================== -->
+    <section class="hero-section" id="hero">
+      <!-- Background Battlefield Artwork -->
+      <div class="hero-bg-layer" id="heroBg"></div>
+
+      <!-- Canvas Particle Overlay (Embers & Light Energy) -->
+      <canvas id="particleCanvas" class="hero-canvas"></canvas>
+
+      <!-- Atmospheric Vignette and Gradients -->
+      <div class="hero-overlay-radial"></div>
+      <div class="hero-overlay-bottom"></div>
+
+      <!-- Hero Center Content -->
+      <div class="hero-container">
+        <div class="hero-content reveal-on-scroll">
+          <div class="hero-tag">
+            <span class="tag-line"></span>
+            <span class="tag-text">REAL-TIME</span>
+            <span class="tag-line"></span>
+          </div>
+
+          <h1 class="hero-title">
+            5V5 FANTASY<br>
+            <span class="gold-gradient-text">BATTLE</span>
+          </h1>
+
+          <p class="hero-subtitle">PLAY. FIGHT. CONQUER.</p>
+
+          <div class="hero-cta-group">
+            <a href="#download" class="btn btn-primary-gold btn-large glow-pulse">
+              <span class="btn-shine"></span>
+              <span class="btn-text">PLAY NOW</span>
+            </a>
+
+            <button class="btn btn-secondary-outline btn-large" id="watchTrailerBtn">
+              <svg class="btn-play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+              <span class="desktop-copy">TRAILER</span><span class="mobile-copy">WATCH TRAILER</span>
+            </button>
+          </div>
+
+          <!-- Platform Availability Badges -->
+          <div class="hero-platforms">
+            <a href="#download" class="platform-badge" title="Download for Windows PC">
+              <img src="assets/icons/platforms/windows.svg" alt="Windows" class="platform-icon">
+              <div class="platform-info">
+                <span class="platform-sub">AVAILABLE ON</span>
+                <span class="platform-name">WINDOWS</span>
+              </div>
+            </a>
+
+            <a href="#download" class="platform-badge" title="Get it on Google Play">
+              <img src="assets/icons/platforms/google-play.svg" alt="Google Play" class="platform-icon">
+              <div class="platform-info">
+                <span class="platform-sub">GET IT ON</span>
+                <span class="platform-name">GOOGLE PLAY</span>
+              </div>
+            </a>
+
+            <a href="#download" class="platform-badge" title="Download on the App Store">
+              <img src="assets/icons/platforms/app-store.svg" alt="App Store" class="platform-icon">
+              <div class="platform-info">
+                <span class="platform-sub">DOWNLOAD ON THE</span>
+                <span class="platform-name">APP STORE</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Scroll Down Arrow -->
+      <a href="#modes" class="hero-scroll-indicator" aria-label="Scroll to battle arenas">
+        <span class="scroll-label">SCROLL</span>
+        <div class="scroll-chevron">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M7 10l5 5 5-5"/>
+          </svg>
+        </div>
+      </a>
+    </section>
+
+    <!-- ==================================================
+         5. GAME MODES SECTION
+         ================================================== -->
+    <section class="modes-section section-dark" id="modes">
+      <div class="content-container">
+        
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag-gold">BATTLE ARENAS</span>
+          <h2 class="section-heading-light">CHOOSE YOUR BATTLE</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtext-light"><span class="desktop-copy">Whether you seek high-stakes ranked mastery, classic three-lane warfare, or frantic chaos duels, the arena calls.</span><span class="mobile-copy">Different challenges. One legendary world.</span></p>
+        </div>
+
+        <div class="modes-grid reveal-on-scroll">
+          
+          <!-- Mode 1: 5v5 Classic -->
+          <div class="mode-card">
+            <div class="mode-bg" style="background-image: url('assets/backgrounds/mode-classic.jpg');"></div>
+            <div class="mode-overlay"></div>
+            <div class="mode-border-fx"></div>
+            <div class="mode-content">
+              <span class="mode-badge">STANDARD MATCH</span>
+              <h3 class="mode-title">5V5 CLASSIC</h3>
+              <p class="mode-desc"><span class="desktop-copy">The definitive competitive MOBA arena. Push 3 lanes, conquer neutral jungle leviathans, shatter protective towers, and obliterate the enemy Core.</span><span class="mobile-copy">Pure strategy. True teamwork.</span></p>
+              <ul class="mode-features">
+                <li>• 3 Tactical Lanes & River Jungle</li>
+                <li>• Abyssal Dragon & Dark Slayer Buffs</li>
+                <li>• Standard 12-18 Minute Match Pacing</li>
+              </ul>
+              <a href="#download" class="btn btn-outline-gold btn-block">PLAY MODE</a>
+            </div>
+          </div>
+
+          <!-- Mode 2: Ranked Arena -->
+          <div class="mode-card featured-mode">
+            <div class="mode-bg" style="background-image: url('assets/backgrounds/mode-ranked.jpg');"></div>
+            <div class="mode-overlay"></div>
+            <div class="mode-border-fx"></div>
+            <div class="mode-content">
+              <span class="mode-badge gold-badge">COMPETITIVE</span>
+              <h3 class="mode-title">RANKED ARENA</h3>
+              <p class="mode-desc"><span class="desktop-copy">Climb the seasonal hierarchy from Bronze to Grand Sovereign. Features tournament draft pick, tactical champion bans, and exclusive seasonal skin rewards.</span><span class="mobile-copy">Climb. Compete. Be legendary.</span></p>
+              <ul class="mode-features">
+                <li>• Draft Pick & Simultaneous Bans</li>
+                <li>• Regional & Global Leaderboards</li>
+                <li>• High Tier Tier-Protection Star Shields</li>
+              </ul>
+              <a href="#download" class="btn btn-primary-gold btn-block glow-pulse">ENTER QUEUE</a>
+            </div>
+          </div>
+
+          <!-- Mode 3: Chaos Battle -->
+          <div class="mode-card">
+            <div class="mode-bg" style="background-image: url('assets/backgrounds/mode-chaos.jpg');"></div>
+            <div class="mode-overlay"></div>
+            <div class="mode-border-fx"></div>
+            <div class="mode-content">
+              <span class="mode-badge">ARCADE MAYHEM</span>
+              <h3 class="mode-title">CHAOS BATTLE</h3>
+              <p class="mode-desc"><span class="desktop-copy">Fast-paced single-lane madness with randomized heroes, accelerated gold generation, instant respawns, and 80% reduced ability cooldowns.</span><span class="mobile-copy">Bigger fights. Wilder rules.</span></p>
+              <ul class="mode-features">
+                <li>• All-Random Single Lane Clash</li>
+                <li>• Constant Teamfight Engagements</li>
+                <li>• Pure 7-Minute Quick Match Action</li>
+              </ul>
+              <a href="#download" class="btn btn-outline-gold btn-block">PLAY MODE</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================
+         4. MEET THE HEROES SECTION
+         ================================================== -->
+    <section class="heroes-section hero-gallery-section section-white" id="heroes" aria-labelledby="heroGalleryTitle">
+      <div class="content-container">
+        <div class="section-header hero-gallery-heading">
+          <h2 class="section-heading-dark" id="heroGalleryTitle">MEET THE HEROES</h2>
+          <p class="hero-gallery-subtitle">CHAMPIONS FOR A HIGHER TOMORROW</p>
+          <div class="gold-divider"></div>
+        </div>
+        <div class="hero-gallery-toolbar">
+          <p class="hero-gallery-hint">Scroll to explore · Select your hero</p>
+          <div class="hero-gallery-controls">
+            <button type="button" id="heroCardsPrevious" aria-label="Previous hero cards" aria-controls="heroCardTrack">←</button>
+            <p class="hero-gallery-position" id="heroCardsPosition" aria-label="Current hero card">01 / 04</p>
+            <button type="button" id="heroCardsNext" aria-label="Next hero cards" aria-controls="heroCardTrack">→</button>
+          </div>
+        </div>
+        <div class="hero-card-track" id="heroCardTrack" tabindex="0" role="region" aria-label="Four hero cards. Scroll horizontally or use the arrow keys.">
+            <a class="hero-profile-card nobara" href="heroes/nobara.html" aria-label="Explore NOBARA">
+              <div class="hero-profile-art">
+                <img src="assets/heroes/posters/nobara.png" alt="NOBARA character artwork" loading="lazy">
+                <span class="hero-profile-number" aria-hidden="true">01</span>
+              </div>
+              <div class="hero-profile-body">
+                <span class="hero-profile-role">FEARLESS FIGHTER</span>
+                <h3 class="hero-profile-name">NOBARA</h3>
+                <p class="hero-profile-caption">Her game. Her rules.</p>
+                <span class="hero-profile-link">VIEW HERO <span aria-hidden="true">→</span></span>
+              </div>
+            </a>
+            <a class="hero-profile-card johnson" href="heroes/johnson.html" aria-label="Explore JOHNSON">
+              <div class="hero-profile-art">
+                <img src="assets/heroes/posters/johnson.png" alt="JOHNSON character artwork" loading="lazy">
+                <span class="hero-profile-number" aria-hidden="true">02</span>
+              </div>
+              <div class="hero-profile-body">
+                <span class="hero-profile-role">TANK · WRECK KING</span>
+                <h3 class="hero-profile-name">JOHNSON</h3>
+                <p class="hero-profile-caption">Drive. Protect. Dominate.</p>
+                <span class="hero-profile-link">VIEW HERO <span aria-hidden="true">→</span></span>
+              </div>
+            </a>
+            <a class="hero-profile-card lesley" href="heroes/lesley.html" aria-label="Explore LESLEY">
+              <div class="hero-profile-art">
+                <img src="assets/heroes/posters/lesley.png" alt="LESLEY character artwork" loading="lazy">
+                <span class="hero-profile-number" aria-hidden="true">03</span>
+              </div>
+              <div class="hero-profile-body">
+                <span class="hero-profile-role">THE LONE SNIPER</span>
+                <h3 class="hero-profile-name">LESLEY</h3>
+                <p class="hero-profile-caption">One shot. A different story.</p>
+                <span class="hero-profile-link">VIEW HERO <span aria-hidden="true">→</span></span>
+              </div>
+            </a>
+            <a class="hero-profile-card alice" href="heroes/alice.html" aria-label="Explore ALICE">
+              <div class="hero-profile-art">
+                <img src="assets/heroes/posters/alice.jpg" alt="ALICE character artwork" loading="lazy">
+                <span class="hero-profile-number" aria-hidden="true">04</span>
+              </div>
+              <div class="hero-profile-body">
+                <span class="hero-profile-role">MAGE · QUEEN OF THE NIGHT</span>
+                <h3 class="hero-profile-name">ALICE</h3>
+                <p class="hero-profile-caption">Surrender to the night.</p>
+                <span class="hero-profile-link">VIEW HERO <span aria-hidden="true">→</span></span>
+              </div>
+            </a>
+        </div>
+        
+      </div>
+    </section>
+
+
+
+    <!-- ==================================================
+         6. HERO CLASSES SECTION
+         ================================================== -->
+    <section class="classes-section section-dark" id="classes">
+      <div class="content-container">
+        
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag-gold">COMBAT ARCHETYPES</span>
+          <h2 class="section-heading-light">HERO CLASSES</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtext-light"><span class="desktop-copy">
+            Every champion commands a distinct tactical purpose. Build the ultimate team synergy.
+          </span><span class="mobile-copy">Find your role. Define the battle.</span></p>
+        </div>
+
+        <div class="classes-grid reveal-on-scroll">
+          
+          <!-- Class 1: Warrior -->
+          <div class="class-card">
+            <div class="class-icon-wrapper">
+              <img src="assets/icons/classes/warrior.svg" alt="Warrior Class" class="class-icon">
+            </div>
+            <h3 class="class-title">WARRIOR</h3>
+            <p class="class-desc"><span class="desktop-copy">Balanced melee brawlers who excel at sustained close-quarters skirmishes, blending respectable resilience with steady physical DPS.</span><span class="mobile-copy">Durable frontliners</span></p>
+            <span class="class-lane">Solo Lane / Jungle</span>
+          </div>
+
+          <!-- Class 2: Mage -->
+          <div class="class-card">
+            <div class="class-icon-wrapper">
+              <img src="assets/icons/classes/mage.svg" alt="Mage Class" class="class-icon">
+            </div>
+            <h3 class="class-title">MAGE</h3>
+            <p class="class-desc"><span class="desktop-copy">Spellweavers delivering explosive area-of-effect magical burst, crowd control roots, and zoning artillery from safe distances.</span><span class="mobile-copy">Arcane destruction</span></p>
+            <span class="class-lane">Mid Lane</span>
+          </div>
+
+          <!-- Class 3: Assassin -->
+          <div class="class-card">
+            <div class="class-icon-wrapper">
+              <img src="assets/icons/classes/assassin.svg" alt="Assassin Class" class="class-icon">
+            </div>
+            <h3 class="class-title">ASSASSIN</h3>
+            <p class="class-desc"><span class="desktop-copy">Hyper-mobile shadows specialized in tracking down isolated marksmen and mages, executing targets in fractions of a second.</span><span class="mobile-copy">Swift elimination</span></p>
+            <span class="class-lane">Jungle / Roam</span>
+          </div>
+
+          <!-- Class 4: Tank -->
+          <div class="class-card">
+            <div class="class-icon-wrapper">
+              <img src="assets/icons/classes/tank.svg" alt="Tank Class" class="class-icon">
+            </div>
+            <h3 class="class-title">TANK</h3>
+            <p class="class-desc"><span class="desktop-copy">Unyielding fortresses who soak lethal punishment, initiate five-man engagements, and protect vulnerable high-damage allies.</span><span class="mobile-copy">Unbreakable defense</span></p>
+            <span class="class-lane">Frontline / Support</span>
+          </div>
+
+          <!-- Class 5: Archer -->
+          <div class="class-card">
+            <div class="class-icon-wrapper">
+              <img src="assets/icons/classes/archer.svg" alt="Archer Class" class="class-icon">
+            </div>
+            <h3 class="class-title">ARCHER</h3>
+            <p class="class-desc"><span class="desktop-copy">Lethal ranged marksmen who scale into unstoppable late-game hyper-carries through consistent physical critical strikes.</span><span class="mobile-copy">Ranged precision</span></p>
+            <span class="class-lane">Dragon Lane</span>
+          </div>
+
+          <!-- Class 6: Support -->
+          <div class="class-card">
+            <div class="class-icon-wrapper">
+              <img src="assets/icons/classes/support.svg" alt="Support Class" class="class-icon">
+            </div>
+            <h3 class="class-title">SUPPORT</h3>
+            <p class="class-desc"><span class="desktop-copy">Guardian tacticians who bestow defensive shields, restorative healing, vision control, and tactical speed buffs across the map.</span><span class="mobile-copy">Empower allies</span></p>
+            <span class="class-lane">Roam / Dragon Lane</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================
+         9. FINAL CINEMATIC BANNER
+         ================================================== -->
+    <section class="cinematic-banner-section" id="finalBanner">
+      <div class="banner-bg" style="background-image: url('assets/backgrounds/warrior-banner.jpg');"></div>
+      <div class="banner-overlay-top"></div>
+      <div class="banner-overlay-bottom"></div>
+      
+      <div class="banner-floating-content reveal-on-scroll">
+        <span class="banner-tag">DESTINY AWAITS</span>
+        <h2 class="banner-title">THE BATTLE BEGINS</h2>
+        <p class="banner-subtitle">Gather your comrades. Dominate the lanes. Forge your immortality.</p>
+        <a href="#download" class="btn btn-primary-gold btn-large glow-pulse">
+          <span>PLAY NOW</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================
+       10. FOOTER
+       ================================================== -->
+  <footer class="site-footer">
+    <div class="content-container footer-container">
+      
+      <!-- Top Row: Logo & Social Channels -->
+      <div class="footer-top-row">
+        <div class="footer-brand">
+          <img src="assets/images/logo.svg" alt="Aetheria Realm of Valor" class="footer-logo">
+          <p class="footer-tagline">The official real-time 5v5 tactical multiplayer online battle arena.</p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Official Discord">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.893.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+            </svg>
+          </a>
+
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Official YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Official X / Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Official Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Official Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- Bottom Row: Navigation, Legal & Copyright -->
+      <div class="footer-bottom-row">
+        <nav class="footer-nav-links">
+          <a href="#hero">GAME</a>
+          <a href="#heroes">HEROES</a>
+          <a href="#modes">MODES</a>
+          <a href="#" class="legal-link" id="legalPrivacy">PRIVACY POLICY</a>
+          <a href="#" class="legal-link" id="legalTerms">TERMS OF SERVICE</a>
+          <a href="#" class="legal-link" id="legalSupport">SUPPORT</a>
+        </nav>
+
+        <p class="copyright-text">
+          &copy; 2026 AETHERIA STUDIOS / TYRION GAMES LTD. ALL RIGHTS RESERVED.<br>
+          Arena of Valor and related character designs are trademarks of their respective copyright holders.
+        </p>
+      </div>
+
+      <!-- Floating Back To Top Button -->
+      <button class="back-to-top" id="backToTopBtn" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+        <span class="top-text">TOP</span>
+      </button>
+
+    </div>
+  </footer>
+
+  <!-- ==================================================
+       INTERACTIVE MODAL FOR NEWS & TRAILER
+       ================================================== -->
+  <div class="site-modal-overlay" id="siteModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop-blur"></div>
+    <div class="modal-window">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
+      <div class="modal-inner" id="modalContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Application -->
+  <script src="js/script.js"></script>
+  <script src="js/hero-cards.js"></script>
+</body>
+</html>
