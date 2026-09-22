@@ -2406,3 +2406,17 @@ ul {
     padding: 0 1.25rem;
   }
 }
+
+/* Soft gold community counts beneath the hero actions. */
+.hero-community { display: flex; justify-content: center; gap: 32px; margin-top: 24px; color: #e6ce96; }
+.community-stat { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.community-stat + .community-stat { border-left: 1px solid #e6ce9640; padding-left: 32px; }
+.community-label { font-size: 10px; font-weight: 600; letter-spacing: .16em; }
+.community-count { font-size: 28px; line-height: 1.1; font-weight: 700; text-shadow: 0 0 16px #e6ce9626; }
+@media (max-width: 600px) {
+  .hero-community { justify-content: flex-start; gap: 20px; margin-top: 14px; }
+  .community-stat { align-items: flex-start; gap: 4px; }
+  .community-stat + .community-stat { padding-left: 20px; }
+  .community-label { font-size: 8px; }
+  .community-count { font-size: 21px; }
+}
