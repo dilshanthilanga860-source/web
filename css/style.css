@@ -2421,3 +2421,25 @@ ul {
   .community-count { font-size: 21px; }
 }
 .hero-youtube-logo { display: none; }
+
+.mode-mvp-label {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  padding: 10px 14px;
+  border-left: 2px solid #d4af37;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(90deg, #09090cdb, #09090c70);
+  color: #e0bc5a;
+  font-family: var(--font-heading);
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-shadow: 0 1px 6px #0009;
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .mode-mvp-label { left: 12px; padding: 6px 9px; font-size: 15px; }
+}
